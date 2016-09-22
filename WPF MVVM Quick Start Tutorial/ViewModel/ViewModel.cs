@@ -11,7 +11,12 @@ namespace WPF_MVVM_Quick_Start_Tutorial.ViewModel
 {
     public class ViewModel: ObservableObject
     {
-        private readonly TextConverter _textConverter = new TextConverter(s => s.ToUpper());
+        private readonly TextConverter _textConverter = new TextConverter(delegate(string s) {
+            if (s != null)
+                return s.ToUpper();
+            else
+                return "";
+        });
         private string _someText;
         private readonly ObservableCollection<string> _history = new ObservableCollection<string>();
 
@@ -41,7 +46,7 @@ namespace WPF_MVVM_Quick_Start_Tutorial.ViewModel
 
         private void AddToHistory(string item)
         {
-            if (!_history.Contains(item))
+            if (!_history.Contains(item) & item != "")
                 _history.Add(item);
         }
     }
