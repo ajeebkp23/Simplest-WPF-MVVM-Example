@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
 
-namespace WPF_MVVM_Quick_Start_Tutorial
+namespace WPF_MVVM_Quick_Start_Tutorial.ViewModel
 {
     class DelegateCommand: ICommand
     {

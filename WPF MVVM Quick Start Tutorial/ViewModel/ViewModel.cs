@@ -5,8 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Input;
+using WPF_MVVM_Quick_Start_Tutorial.Model;
 
-namespace WPF_MVVM_Quick_Start_Tutorial
+namespace WPF_MVVM_Quick_Start_Tutorial.ViewModel
 {
     public class ViewModel: ObservableObject
     {

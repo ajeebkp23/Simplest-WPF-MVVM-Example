@@ -4,10 +4,11 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WPF_MVVM_Quick_Start_Tutorial"
+        xmlns:ViewModel="clr-namespace:WPF_MVVM_Quick_Start_Tutorial.ViewModel"
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Window.DataContext>
-        <local:ViewModel/>
+        <ViewModel:ViewModel/>
     </Window.DataContext>
     <local:ConverterControl/>
 </Window>

@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace WPF_MVVM_Quick_Start_Tutorial
+namespace WPF_MVVM_Quick_Start_Tutorial.ViewModel
 {
     public class ObservableObject: INotifyPropertyChanged
     {
