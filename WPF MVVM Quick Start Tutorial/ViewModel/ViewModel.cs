@@ -21,7 +21,8 @@ namespace WPF_MVVM_Quick_Start_Tutorial.ViewModel
             set
             {
                 _someText = value;
-                RaisePropertyChangedEvent("SomeText");
+                if(_someText!="")
+                    RaisePropertyChangedEvent("SomeText");
             }
         }
         public IEnumerable<string> History
