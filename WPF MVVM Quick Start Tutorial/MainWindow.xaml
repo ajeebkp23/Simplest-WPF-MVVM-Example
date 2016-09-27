@@ -7,6 +7,22 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="350" Width="525">
     <Grid>
-        
+        <TreeView Name="DataSourcesTreeView" ItemsSource="{Binding RTSources}">
+            <TreeView.Resources>
+                <HierarchicalDataTemplate DataType="{x:Type local:ModbusNode}">
+                    <StackPanel>
+                        <TextBlock Text="{Binding DisplayName}" />
+                    </StackPanel>
+                    <HierarchicalDataTemplate.ItemTemplate>
+                        <HierarchicalDataTemplate DataType="{x:Type local:ModbusPortNode}" ItemsSource="{Binding PortNodes}">
+                            <StackPanel>
+                                <TextBlock Text="{Binding PortName}" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                    </HierarchicalDataTemplate.ItemTemplate>
+                </HierarchicalDataTemplate>
+
+            </TreeView.Resources>
+        </TreeView>
     </Grid>
 </Window>
