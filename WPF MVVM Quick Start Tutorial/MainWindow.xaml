@@ -8,17 +8,37 @@
         Title="MainWindow" Height="350" Width="525">
     <Grid>
         <TreeView Name="DataSourcesTreeView" ItemsSource="{Binding RTSources}">
+            <TreeView.ItemContainerStyle>
+                <!-- 
+                This Style binds a TreeViewItem to a PersonViewModel. 
+                -->
+                <Style TargetType="{x:Type TreeViewItem}">
+                    <Setter Property="IsExpanded" Value="{Binding IsExpanded, Mode=TwoWay}" />
+                    <Setter Property="IsSelected" Value="{Binding IsSelected, Mode=TwoWay}" />
+                    <Setter Property="FontWeight" Value="Normal" />
+                    <Style.Triggers>
+                        <Trigger Property="IsSelected" Value="True">
+                            <Setter Property="FontWeight" Value="Bold" />
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </TreeView.ItemContainerStyle>
             <TreeView.Resources>
-                <HierarchicalDataTemplate DataType="{x:Type local:ModbusNode}">
+                <HierarchicalDataTemplate DataType="{x:Type local:ModbusNodeViewModel}">
                     <StackPanel>
                         <TextBlock Text="{Binding DisplayName}" />
                     </StackPanel>
                     <HierarchicalDataTemplate.ItemTemplate>
-                        <HierarchicalDataTemplate DataType="{x:Type local:ModbusPortNode}" ItemsSource="{Binding PortNodes}">
+                        <HierarchicalDataTemplate>
+                            <StackPanel>
+                                <TextBlock Text="Foo" />
+                            </StackPanel>
+                        </HierarchicalDataTemplate>
+                        <!--<HierarchicalDataTemplate DataType="{x:Type local:ModbusPortNode}" ItemsSource="{Binding PortNodes}">
                             <StackPanel>
                                 <TextBlock Text="{Binding PortName}" />
                             </StackPanel>
-                        </HierarchicalDataTemplate>
+                        </HierarchicalDataTemplate>-->
                     </HierarchicalDataTemplate.ItemTemplate>
                 </HierarchicalDataTemplate>
 
